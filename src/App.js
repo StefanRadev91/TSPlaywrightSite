@@ -11,6 +11,7 @@ import TypeScriptBasics from './pages/TypeScriptBasics/TypeScriptBasics';
 import POM from './pages/POM/POM';
 import K6 from './pages/K6/K6';
 import Postman from './pages/Postman/Postman';
+import QACI from './pages/QACI/QACI';
 
 function App() {
   const { currentUser } = useAuth();
@@ -35,6 +36,7 @@ function App() {
         <Route path="/pom" element={<POM />} />
         <Route path="/k6" element={<K6 />} />
         <Route path="/postman" element={<Postman />} />
+        <Route path="/qa-ci" element={<QACI />} />
 
         {/* Protected routes */}
         <Route path="/profile" element={

@@ -1,0 +1,7 @@
+/* ===== QACI Page Styles ===== */
+
+.qaci-page {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}

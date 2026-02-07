@@ -11,6 +11,7 @@ const navItems = [
   { path: '/playwright', label: 'Playwright' },
   { path: '/typescript', label: 'TypeScript' },
   { path: '/pom', label: 'Page Object Model' },
+  { path: '/qa-ci', label: 'QA in CI/CD' },
 ];
 
 const perfItems = [
