@@ -1,0 +1,527 @@
+/* ===== Page Object Model Page Styles ===== */
+
+.pom-page {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* --- Layout --- */
+
+.page-layout {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+/* --- Main Content Area --- */
+
+.page-content {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.page-content section {
+  margin-bottom: 3.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.page-content section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.page-content h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.page-content .page-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.page-content h2 {
+  font-size: 1.65rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  padding-top: 0.5rem;
+  letter-spacing: -0.3px;
+}
+
+.page-content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1.8rem;
+  margin-bottom: 0.75rem;
+  color: var(--accent-green);
+}
+
+.page-content h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent-blue);
+}
+
+.page-content p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.page-content ul,
+.page-content ol {
+  margin: 0.75rem 0 1.25rem 1.5rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.page-content li {
+  margin-bottom: 0.4rem;
+}
+
+.page-content li strong {
+  color: var(--text-primary);
+}
+
+.page-content code {
+  font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  background-color: var(--bg-secondary);
+  color: var(--accent-green);
+  padding: 0.15em 0.45em;
+  border-radius: 4px;
+  font-size: 0.88em;
+  border: 1px solid var(--border-color);
+}
+
+/* Don't double-style code inside CodeBlock */
+.page-content pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* --- Sidebar --- */
+
+.page-sidebar {
+  position: relative;
+}
+
+.page-sidebar > * {
+  position: sticky;
+  top: 5rem;
+}
+
+/* --- Comparison Table --- */
+
+.comparison-table-wrapper {
+  overflow-x: auto;
+  margin: 1.25rem 0 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.comparison-table th {
+  background-color: var(--bg-secondary);
+  color: var(--accent-green);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.comparison-table td {
+  padding: 0.65rem 1rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: top;
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* --- File Tree --- */
+
+.file-tree {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin: 1rem 0 1.5rem;
+  font-family: 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  overflow-x: auto;
+}
+
+.file-tree .folder {
+  color: var(--accent-blue);
+}
+
+.file-tree .file {
+  color: var(--text-muted);
+}
+
+.file-tree .highlight-file {
+  color: var(--accent-green);
+  font-weight: 500;
+}
+
+/* --- Utility Boxes --- */
+
+.tip-box,
+.warning-box,
+.info-box {
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.tip-box {
+  background-color: rgba(74, 222, 128, 0.07);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  color: var(--text-secondary);
+}
+
+.tip-box strong,
+.tip-box .box-title {
+  color: var(--accent-green);
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+.warning-box {
+  background-color: rgba(251, 191, 36, 0.07);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  color: var(--text-secondary);
+}
+
+.warning-box strong,
+.warning-box .box-title {
+  color: #fbbf24;
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+.info-box {
+  background-color: rgba(96, 165, 250, 0.07);
+  border: 1px solid rgba(96, 165, 250, 0.25);
+  color: var(--text-secondary);
+}
+
+.info-box strong,
+.info-box .box-title {
+  color: var(--accent-blue);
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+/* --- Section Badges / Labels --- */
+
+.section-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.2em 0.65em;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.section-label--green {
+  background-color: rgba(74, 222, 128, 0.12);
+  color: var(--accent-green);
+}
+
+.section-label--blue {
+  background-color: rgba(96, 165, 250, 0.12);
+  color: var(--accent-blue);
+}
+
+.section-label--purple {
+  background-color: rgba(168, 85, 247, 0.12);
+  color: var(--accent-purple);
+}
+
+/* --- Benefits Grid --- */
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.benefit-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  transition: border-color 0.2s ease;
+}
+
+.benefit-card:hover {
+  border-color: var(--accent-green);
+}
+
+.benefit-card__icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.benefit-card__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.benefit-card__desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* --- POM Diagram / Visual --- */
+
+.pom-diagram {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.pom-diagram__row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.pom-diagram__row:last-child {
+  margin-bottom: 0;
+}
+
+.pom-diagram__box {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  min-width: 140px;
+}
+
+.pom-diagram__box--green {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+}
+
+.pom-diagram__box--blue {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+
+.pom-diagram__box--purple {
+  border-color: var(--accent-purple);
+  color: var(--accent-purple);
+}
+
+.pom-diagram__arrow {
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.pom-diagram__label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  font-style: italic;
+}
+
+/* --- Method Breakdown Cards --- */
+
+.method-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.method-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  border-left: 3px solid var(--accent-blue);
+}
+
+.method-card__name {
+  font-family: 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 0.95rem;
+  color: var(--accent-green);
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.method-card__return {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  color: var(--accent-purple);
+  margin-bottom: 0.5rem;
+}
+
+.method-card__desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* --- Practices list --- */
+
+.practices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+.practice-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+}
+
+.practice-item__icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.practice-item__icon--do {
+  color: var(--accent-green);
+}
+
+.practice-item__icon--dont {
+  color: #ef4444;
+}
+
+.practice-item__content h4 {
+  margin: 0 0 0.3rem;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.practice-item__content p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 960px) {
+  .page-layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .page-sidebar {
+    display: none;
+  }
+
+  .page-content h1 {
+    font-size: 2rem;
+  }
+
+  .page-content h2 {
+    font-size: 1.4rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-layout {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  .page-content h1 {
+    font-size: 1.7rem;
+  }
+
+  .page-content section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .comparison-table {
+    font-size: 0.82rem;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 0.5rem 0.65rem;
+  }
+
+  .pom-diagram {
+    padding: 1rem;
+  }
+
+  .pom-diagram__row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
