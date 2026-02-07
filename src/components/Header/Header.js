@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from 'react';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import Logo from '../Logo/Logo';
 import UserMenu from '../UserMenu/UserMenu';
-import { FiMenu, FiX, FiLogIn, FiUserPlus } from 'react-icons/fi';
+import { FiMenu, FiX, FiLogIn, FiUserPlus, FiChevronDown } from 'react-icons/fi';
 import './Header.css';
 
 const navItems = [
@@ -13,9 +13,29 @@ const navItems = [
   { path: '/pom', label: 'Page Object Model' },
 ];
 
+const perfItems = [
+  { path: '/k6', label: 'K6' },
+  { path: '/postman', label: 'Postman' },
+];
+
 function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [perfOpen, setPerfOpen] = useState(false);
   const { currentUser, loading } = useAuth();
+  const location = useLocation();
+  const perfRef = useRef(null);
+
+  const isPerfActive = perfItems.some(item => location.pathname === item.path);
+
+  useEffect(() => {
+    function handleClick(e) {
+      if (perfRef.current && !perfRef.current.contains(e.target)) {
+        setPerfOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, []);
 
   return (
     <header className="header">
@@ -38,6 +58,36 @@ function Header() {
               {label}
             </NavLink>
           ))}
+
+          {/* Performance Testing dropdown */}
+          <div className="header__dropdown" ref={perfRef}>
+            <button
+              className={`header__link header__dropdown-toggle ${isPerfActive ? 'header__link--active' : ''}`}
+              onClick={() => setPerfOpen(!perfOpen)}
+            >
+              Performance Testing
+              <FiChevronDown
+                size={14}
+                className={`header__dropdown-arrow ${perfOpen ? 'header__dropdown-arrow--open' : ''}`}
+              />
+            </button>
+            {perfOpen && (
+              <div className="header__dropdown-menu">
+                {perfItems.map(({ path, label }) => (
+                  <NavLink
+                    key={path}
+                    to={path}
+                    className={({ isActive }) =>
+                      `header__dropdown-item ${isActive ? 'header__dropdown-item--active' : ''}`
+                    }
+                    onClick={() => { setPerfOpen(false); setMobileOpen(false); }}
+                  >
+                    {label}
+                  </NavLink>
+                ))}
+              </div>
+            )}
+          </div>
 
           {/* Mobile-only auth links */}
           {!loading && !currentUser && (

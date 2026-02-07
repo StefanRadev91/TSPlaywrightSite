@@ -9,6 +9,8 @@ import Profile from './pages/Profile/Profile';
 import PlaywrightBasics from './pages/PlaywrightBasics/PlaywrightBasics';
 import TypeScriptBasics from './pages/TypeScriptBasics/TypeScriptBasics';
 import POM from './pages/POM/POM';
+import K6 from './pages/K6/K6';
+import Postman from './pages/Postman/Postman';
 
 function App() {
   const { currentUser } = useAuth();
@@ -27,16 +29,14 @@ function App() {
           element={currentUser ? <Navigate to="/" replace /> : <Register />}
         />
 
+        {/* Content pages (public) */}
+        <Route path="/playwright" element={<PlaywrightBasics />} />
+        <Route path="/typescript" element={<TypeScriptBasics />} />
+        <Route path="/pom" element={<POM />} />
+        <Route path="/k6" element={<K6 />} />
+        <Route path="/postman" element={<Postman />} />
+
         {/* Protected routes */}
-        <Route path="/playwright" element={
-          <ProtectedRoute><PlaywrightBasics /></ProtectedRoute>
-        } />
-        <Route path="/typescript" element={
-          <ProtectedRoute><TypeScriptBasics /></ProtectedRoute>
-        } />
-        <Route path="/pom" element={
-          <ProtectedRoute><POM /></ProtectedRoute>
-        } />
         <Route path="/profile" element={
           <ProtectedRoute><Profile /></ProtectedRoute>
         } />
