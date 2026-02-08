@@ -29,7 +29,7 @@
 }
 
 .hero__logo {
-  display: inline-flex;
+  display: block;
   margin-bottom: 1.5rem;
 }
 
