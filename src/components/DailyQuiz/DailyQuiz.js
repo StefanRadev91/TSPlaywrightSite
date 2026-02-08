@@ -26,9 +26,7 @@ function DailyQuiz() {
     const todayKey = getTodayKey();
 
     if (currentUser && quizHistory) {
-      const todayEntry = quizHistory.find(
-        q => q.date === todayKey && q.questionId === question.id
-      );
+      const todayEntry = quizHistory.find(q => q.date === todayKey);
       if (todayEntry) {
         return { selected: todayEntry.correct ? question.correct : -1, correct: todayEntry.correct };
       }
@@ -38,7 +36,7 @@ function DailyQuiz() {
       const stored = localStorage.getItem('dailyQuizAnswer');
       if (stored) {
         const parsed = JSON.parse(stored);
-        if (parsed.date === todayKey && parsed.questionId === question.id) {
+        if (parsed.date === todayKey) {
           return { selected: parsed.selected, correct: parsed.selected === question.correct };
         }
       }
