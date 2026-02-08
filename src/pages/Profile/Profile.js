@@ -25,6 +25,15 @@ function Profile() {
       })
     : 'N/A';
 
+  // All-time quiz stats
+  const allTimeStats = useMemo(() => {
+    const all = quizHistory || [];
+    const correct = all.filter(q => q.correct).length;
+    const total = all.length;
+    const rate = total > 0 ? Math.round((correct / total) * 100) : 0;
+    return { correct, total, rate };
+  }, [quizHistory]);
+
   // Quiz stats for last 30 days
   const quizStats = useMemo(() => {
     const thirtyDaysAgo = Date.now() - (30 * 24 * 60 * 60 * 1000);
@@ -77,6 +86,30 @@ function Profile() {
               <span><FiCalendar size={14} /> Joined {joinDate}</span>
             </div>
           </div>
+        </div>
+
+        {/* All-Time Quiz Stats */}
+        <div className="alltime-stats">
+          <h2><FiAward size={20} /> Quiz Overview</h2>
+          <div className="alltime-stats__grid">
+            <div className="alltime-stats__item">
+              <span className="alltime-stats__num">{allTimeStats.total}</span>
+              <span className="alltime-stats__label">Total Attempts</span>
+            </div>
+            <div className="alltime-stats__item alltime-stats__item--correct">
+              <span className="alltime-stats__num">{allTimeStats.correct}</span>
+              <span className="alltime-stats__label">Correct Answers</span>
+            </div>
+            <div className="alltime-stats__item alltime-stats__item--rate">
+              <span className="alltime-stats__num">{allTimeStats.rate}%</span>
+              <span className="alltime-stats__label">Success Rate</span>
+            </div>
+          </div>
+          {allTimeStats.total > 0 && (
+            <div className="alltime-stats__bar-track">
+              <div className="alltime-stats__bar-fill" style={{ width: `${allTimeStats.rate}%` }} />
+            </div>
+          )}
         </div>
 
         {/* Quiz Stats */}
