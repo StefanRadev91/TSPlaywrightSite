@@ -66,6 +66,7 @@
   padding: 0.4rem 0.9rem;
   font-size: 0.85rem;
   font-weight: 500;
+  white-space: nowrap;
   border-radius: var(--radius-sm);
   text-decoration: none;
   transition: all var(--transition-fast);

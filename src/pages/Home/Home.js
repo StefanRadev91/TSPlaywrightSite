@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import DailyQuiz from '../../components/DailyQuiz/DailyQuiz';
+import Logo from '../../components/Logo/Logo';
 import { FiArrowRight, FiPlay, FiCode, FiLayers, FiCheckCircle, FiBookOpen, FiZap, FiTarget } from 'react-icons/fi';
 import './Home.css';
 
@@ -17,6 +18,9 @@ function Home() {
           <div className="hero__grid-pattern" />
         </div>
         <div className="hero__content container">
+          <div className="hero__logo">
+            <Logo />
+          </div>
           <div className="hero__badge">
             <FiZap size={14} />
             Open Source Learning Platform

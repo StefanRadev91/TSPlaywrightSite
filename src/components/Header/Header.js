@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import Logo from '../Logo/Logo';
 import UserMenu from '../UserMenu/UserMenu';
 import { FiMenu, FiX, FiLogIn, FiUserPlus, FiChevronDown } from 'react-icons/fi';
 import './Header.css';
@@ -41,10 +40,6 @@ function Header() {
   return (
     <header className="header">
       <div className="header__inner container">
-        <Link to="/" className="header__logo" onClick={() => setMobileOpen(false)}>
-          <Logo />
-        </Link>
-
         <nav className={`header__nav ${mobileOpen ? 'header__nav--open' : ''}`}>
           {navItems.map(({ path, label }) => (
             <NavLink
