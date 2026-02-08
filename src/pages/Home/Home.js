@@ -43,11 +43,11 @@ function Home() {
           </div>
           <div className="hero__stats">
             <div className="hero__stat">
-              <span className="hero__stat-num">4</span>
+              <span className="hero__stat-num">6</span>
               <span className="hero__stat-label">In-depth Guides</span>
             </div>
             <div className="hero__stat">
-              <span className="hero__stat-num">50+</span>
+              <span className="hero__stat-num">100+</span>
               <span className="hero__stat-label">Code Examples</span>
             </div>
             <div className="hero__stat">
