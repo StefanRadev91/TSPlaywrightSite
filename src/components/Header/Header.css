@@ -157,10 +157,6 @@
   background: rgba(52, 211, 153, 0.1);
 }
 
-.header__mobile-auth {
-  display: none;
-}
-
 .header__burger {
   display: none;
   background: none;
@@ -183,18 +179,14 @@
     justify-content: center;
   }
 
-  .header__auth {
-    display: none;
+  .header__auth-btn--login {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.8rem;
   }
 
-  .header__mobile-auth {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    width: 100%;
-    margin-top: 0.5rem;
-    padding-top: 0.5rem;
-    border-top: 1px solid var(--border-color);
+  .header__auth-btn--register {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8rem;
   }
 
   .header__nav {

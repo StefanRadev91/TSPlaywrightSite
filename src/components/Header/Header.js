@@ -85,17 +85,6 @@ function Header() {
             )}
           </div>
 
-          {/* Mobile-only auth links */}
-          {!loading && !currentUser && (
-            <div className="header__mobile-auth">
-              <Link to="/login" className="header__link" onClick={() => setMobileOpen(false)}>
-                Sign In
-              </Link>
-              <Link to="/register" className="header__link" onClick={() => setMobileOpen(false)}>
-                Create Account
-              </Link>
-            </div>
-          )}
         </nav>
 
         <div className="header__actions">
@@ -104,11 +93,11 @@ function Header() {
               <UserMenu />
             ) : (
               <div className="header__auth">
-                <Link to="/login" className="header__auth-btn header__auth-btn--login">
+                <Link to="/login" className="header__auth-btn header__auth-btn--login" onClick={() => setMobileOpen(false)}>
                   <FiLogIn size={16} />
                   Sign In
                 </Link>
-                <Link to="/register" className="header__auth-btn header__auth-btn--register">
+                <Link to="/register" className="header__auth-btn header__auth-btn--register" onClick={() => setMobileOpen(false)}>
                   <FiUserPlus size={16} />
                   Register
                 </Link>

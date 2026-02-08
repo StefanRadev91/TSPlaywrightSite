@@ -23,6 +23,9 @@ function Footer() {
               <Link to="/playwright" className="footer__link">Playwright Basics</Link>
               <Link to="/typescript" className="footer__link">TypeScript Basics</Link>
               <Link to="/pom" className="footer__link">Page Object Model</Link>
+              <Link to="/qa-ci" className="footer__link">QA in CI/CD</Link>
+              <Link to="/k6" className="footer__link">K6 Performance</Link>
+              <Link to="/postman" className="footer__link">Postman Testing</Link>
             </div>
           </div>
 

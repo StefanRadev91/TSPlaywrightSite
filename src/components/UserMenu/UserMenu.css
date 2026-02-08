@@ -127,7 +127,7 @@
   color: #f87171;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
   .user-menu__name {
     display: none;
   }
@@ -143,6 +143,10 @@
   }
 
   .user-menu__dropdown {
-    right: -0.5rem;
+    position: fixed;
+    top: var(--header-height);
+    right: 0.75rem;
+    left: auto;
+    width: 260px;
   }
 }
