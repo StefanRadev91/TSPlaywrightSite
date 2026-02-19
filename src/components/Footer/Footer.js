@@ -1,9 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FiExternalLink } from 'react-icons/fi';
+import { doc, setDoc, getDoc, increment } from 'firebase/firestore';
+import { db } from '../../firebase';
+import { FiExternalLink, FiEye } from 'react-icons/fi';
 import './Footer.css';
 
 function Footer() {
+  const [visitorCount, setVisitorCount] = useState(null);
+
+  useEffect(() => {
+    async function trackVisit() {
+      const ref = doc(db, 'stats', 'visitors');
+
+      // Only count once per session
+      if (!sessionStorage.getItem('visited')) {
+        sessionStorage.setItem('visited', '1');
+        await setDoc(ref, { count: increment(1) }, { merge: true });
+      }
+
+      const snap = await getDoc(ref);
+      if (snap.exists()) {
+        setVisitorCount(snap.data().count);
+      }
+    }
+    trackVisit();
+  }, []);
+
   return (
     <footer className="footer">
       <div className="footer__inner container">
@@ -47,6 +69,12 @@ function Footer() {
 
         <div className="footer__bottom">
           <p>&copy; {new Date().getFullYear()} Playwright & TS Academy. Built for the test automation community.</p>
+          {visitorCount !== null && (
+            <div className="footer__visitors">
+              <FiEye size={13} />
+              <span>{visitorCount.toLocaleString()} visitors since launch</span>
+            </div>
+          )}
         </div>
       </div>
     </footer>
