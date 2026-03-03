@@ -32,6 +32,7 @@ import '@/views/K6/K6.css';
 import '@/views/Postman/Postman.css';
 import '@/views/QACI/QACI.css';
 import '@/views/News/News.css';
+import '@/views/AIEval/AIEval.css';
 
 const inter = Inter({
   subsets: ['latin'],

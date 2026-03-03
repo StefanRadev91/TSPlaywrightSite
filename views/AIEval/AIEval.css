@@ -1,0 +1,7 @@
+/* ===== AI Evaluation Page Styles ===== */
+
+.ai-eval-page {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}

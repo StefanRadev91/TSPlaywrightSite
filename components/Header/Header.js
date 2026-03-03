@@ -13,6 +13,7 @@ const navItems = [
   { path: '/typescript', label: 'TypeScript' },
   { path: '/pom', label: 'Page Object Model' },
   { path: '/qa-ci', label: 'QA in CI/CD' },
+  { path: '/ai-eval', label: 'AI Evaluation' },
 ];
 
 const perfItems = [

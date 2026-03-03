@@ -49,6 +49,7 @@ function Footer() {
               <Link href="/qa-ci" className="footer__link">QA in CI/CD</Link>
               <Link href="/k6" className="footer__link">K6 Performance</Link>
               <Link href="/postman" className="footer__link">Postman Testing</Link>
+              <Link href="/ai-eval" className="footer__link">AI Evaluation</Link>
               <Link href="/news" className="footer__link">QA News</Link>
             </div>
           </div>
