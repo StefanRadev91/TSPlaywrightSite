@@ -358,6 +358,61 @@
 .path-card--blue .path-card__link { color: var(--accent-blue); }
 .path-card--purple .path-card__link { color: var(--accent-purple); }
 
+/* News Cards (homepage) */
+.news-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(52, 211, 153, 0.3);
+  box-shadow: var(--shadow-glow-green);
+}
+
+.news-card__source {
+  margin-bottom: 0.75rem;
+}
+
+.news-card__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.news-card__desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-card__date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+}
+
+.news-section__footer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
 /* CTA */
 .cta__card {
   text-align: center;

@@ -1,14 +1,42 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
 import { useAuth } from '@/contexts/AuthContext';
 import ProgressBar from '@/components/ProgressBar/ProgressBar';
 import DailyQuiz from '@/components/DailyQuiz/DailyQuiz';
 import Logo from '@/components/Logo/Logo';
-import { FiArrowRight, FiPlay, FiCode, FiLayers, FiCheckCircle, FiBookOpen, FiZap, FiTarget } from 'react-icons/fi';
+import { FiArrowRight, FiPlay, FiCode, FiLayers, FiCheckCircle, FiBookOpen, FiZap, FiTarget, FiRss, FiClock } from 'react-icons/fi';
+
+function getSourceColor(source) {
+  if (source.includes('Playwright')) return 'badge-green';
+  if (source.includes('Ministry')) return 'badge-purple';
+  return 'badge-blue';
+}
 
 function Home() {
   const { currentUser } = useAuth();
+  const [latestNews, setLatestNews] = useState([]);
+
+  useEffect(() => {
+    async function fetchLatestNews() {
+      try {
+        const q = query(collection(db, 'news'), orderBy('date', 'desc'), limit(3));
+        const snapshot = await getDocs(q);
+        setLatestNews(
+          snapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data(),
+            date: doc.data().date?.toDate?.() || new Date(doc.data().date),
+          }))
+        );
+      } catch (err) {
+        console.error('Error fetching latest news:', err);
+      }
+    }
+    fetchLatestNews();
+  }, []);
 
   return (
     <div className="home">
@@ -73,6 +101,58 @@ function Home() {
           <DailyQuiz />
         </div>
       </section>
+
+      {/* Latest QA News */}
+      {latestNews.length > 0 && (
+        <section className="section">
+          <div className="container">
+            <div className="paths__header">
+              <span className="badge badge-green">
+                <FiRss size={12} /> Live Feed
+              </span>
+              <h2 className="section-title">Latest QA News</h2>
+              <p className="section-subtitle">
+                Fresh articles from the test automation community
+              </p>
+            </div>
+
+            <div className="paths__grid">
+              {latestNews.map(article => (
+                <a
+                  key={article.id}
+                  href={article.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="news-card"
+                >
+                  <div className="news-card__source">
+                    <span className={`badge ${getSourceColor(article.source)}`}>
+                      {article.source}
+                    </span>
+                  </div>
+                  <h3 className="news-card__title">{article.title}</h3>
+                  {article.description && (
+                    <p className="news-card__desc">{article.description}</p>
+                  )}
+                  <span className="news-card__date">
+                    <FiClock size={12} />
+                    {article.date.toLocaleDateString('en-US', {
+                      month: 'short',
+                      day: 'numeric',
+                    })}
+                  </span>
+                </a>
+              ))}
+            </div>
+
+            <div className="news-section__footer">
+              <Link href="/news" className="hero__btn hero__btn--secondary">
+                View All News <FiArrowRight />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* About Section */}
       <section className="about section">
