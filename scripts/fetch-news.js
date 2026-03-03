@@ -10,9 +10,9 @@ admin.initializeApp({
 const db = admin.firestore();
 
 const FEEDS = [
-  { url: 'https://feeds.feedburner.com/TestingCurator', source: 'Testing Curator' },
-  { url: 'https://playwright.dev/feed.xml', source: 'Playwright Blog' },
-  { url: 'https://www.ministryoftesting.com/feed', source: 'Ministry of Testing' },
+  { url: 'https://dev.to/feed/playwright', source: 'Playwright' },
+  { url: 'https://feeds.feedburner.com/mottestingfeeds?format=xml', source: 'Ministry of Testing' },
+  { url: 'https://devops.com/feed/', source: 'DevOps.com' },
 ];
 
 const parser = new Parser();
