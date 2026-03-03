@@ -71,6 +71,9 @@ export const metadata = {
     description: 'Master test automation with structured learning paths.',
     images: ['/og-image.png'],
   },
+  other: {
+    'impact-site-verification': 'cbd5ae50-782e-4283-8bb6-aa2c709a0953',
+  },
 };
 
 export default function RootLayout({ children }) {
