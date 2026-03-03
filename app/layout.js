@@ -47,7 +47,7 @@ const firaCode = Fira_Code({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://tsplaywrightsite.vercel.app'),
+  metadataBase: new URL('https://www.tsplaywright.blog'),
   title: {
     default: 'Playwright & TypeScript Academy',
     template: '%s | Playwright & TS Academy',
@@ -55,9 +55,7 @@ export const metadata = {
   description: 'Learn Playwright & TypeScript test automation from zero to enterprise-level. Complete guide with Page Object Model, best practices, and real examples.',
   openGraph: {
     type: 'website',
-    title: 'Playwright & TypeScript Academy',
-    description: 'Master test automation with structured learning paths. Learn Playwright, TypeScript, and Page Object Model with daily challenges and real-world examples.',
-    url: 'https://tsplaywrightsite.vercel.app',
+    url: 'https://www.tsplaywright.blog',
     siteName: 'Playwright & TypeScript Academy',
     images: [
       {
@@ -69,8 +67,6 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Playwright & TypeScript Academy',
-    description: 'Master test automation with structured learning paths.',
     images: ['/og-image.png'],
   },
   other: {
