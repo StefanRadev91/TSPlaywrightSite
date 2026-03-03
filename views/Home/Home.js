@@ -7,12 +7,14 @@ import { useAuth } from '@/contexts/AuthContext';
 import ProgressBar from '@/components/ProgressBar/ProgressBar';
 import DailyQuiz from '@/components/DailyQuiz/DailyQuiz';
 import Logo from '@/components/Logo/Logo';
-import { FiArrowRight, FiPlay, FiCode, FiLayers, FiCheckCircle, FiBookOpen, FiZap, FiTarget, FiRss, FiClock } from 'react-icons/fi';
+import { FiArrowRight, FiPlay, FiCode, FiLayers, FiCheckCircle, FiBookOpen, FiZap, FiTarget, FiRss, FiClock, FiExternalLink } from 'react-icons/fi';
 
 function getSourceColor(source) {
   if (source.includes('Playwright')) return 'badge-green';
   if (source.includes('Ministry')) return 'badge-purple';
-  return 'badge-blue';
+  if (source.includes('InfoQ')) return 'badge-blue';
+  if (source.includes('DevOps')) return 'badge-blue';
+  return 'badge-green';
 }
 
 function Home() {
@@ -125,22 +127,33 @@ function Home() {
                   rel="noopener noreferrer"
                   className="news-card"
                 >
-                  <div className="news-card__source">
-                    <span className={`badge ${getSourceColor(article.source)}`}>
-                      {article.source}
-                    </span>
-                  </div>
-                  <h3 className="news-card__title">{article.title}</h3>
-                  {article.description && (
-                    <p className="news-card__desc">{article.description}</p>
+                  {article.image ? (
+                    <div className="news-card__img-wrap">
+                      <img src={article.image} alt="" className="news-card__img" />
+                    </div>
+                  ) : (
+                    <div className="news-card__img-wrap news-card__img-placeholder">
+                      <FiExternalLink size={24} />
+                    </div>
                   )}
-                  <span className="news-card__date">
-                    <FiClock size={12} />
-                    {article.date.toLocaleDateString('en-US', {
-                      month: 'short',
-                      day: 'numeric',
-                    })}
-                  </span>
+                  <div className="news-card__body">
+                    <div className="news-card__source">
+                      <span className={`badge ${getSourceColor(article.source)}`}>
+                        {article.source}
+                      </span>
+                      <span className="news-card__date">
+                        <FiClock size={11} />
+                        {article.date.toLocaleDateString('en-US', {
+                          month: 'short',
+                          day: 'numeric',
+                        })}
+                      </span>
+                    </div>
+                    <h3 className="news-card__title">{article.title}</h3>
+                    {article.description && (
+                      <p className="news-card__desc">{article.description}</p>
+                    )}
+                  </div>
                 </a>
               ))}
             </div>
