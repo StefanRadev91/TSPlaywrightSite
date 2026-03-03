@@ -7,7 +7,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import ProgressBar from '@/components/ProgressBar/ProgressBar';
 import DailyQuiz from '@/components/DailyQuiz/DailyQuiz';
 import Logo from '@/components/Logo/Logo';
-import { FiArrowRight, FiPlay, FiCode, FiLayers, FiCheckCircle, FiBookOpen, FiZap, FiTarget, FiRss, FiClock, FiExternalLink } from 'react-icons/fi';
+import { FiArrowRight, FiPlay, FiCode, FiLayers, FiCheckCircle, FiBookOpen, FiZap, FiTarget, FiRss, FiClock, FiExternalLink, FiStar, FiAward } from 'react-icons/fi';
 
 function getSourceColor(source) {
   if (source.includes('Playwright')) return 'badge-green';
@@ -290,6 +290,113 @@ function Home() {
                 Start POM <FiArrowRight />
               </span>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Recommended Courses */}
+      <section className="courses section">
+        <div className="container">
+          <div className="paths__header">
+            <span className="badge badge-purple">
+              <FiAward size={12} /> Recommended
+            </span>
+            <h2 className="section-title">Level Up with These Courses</h2>
+            <p className="section-subtitle">
+              Hand-picked Udemy courses to accelerate your test automation journey
+            </p>
+          </div>
+
+          <div className="courses__grid">
+            <a
+              href="https://trk.udemy.com/YVgWXr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="course-card"
+            >
+              <div className="course-card__img-wrap">
+                <img
+                  src="https://img-c.udemycdn.com/course/750x422/6623153_fc34_2.jpg"
+                  alt="Learn Playwright with TypeScript"
+                  className="course-card__img"
+                />
+              </div>
+              <div className="course-card__body">
+                <h3 className="course-card__title">Learn Playwright with TypeScript</h3>
+                <p className="course-card__desc">
+                  From zero to expert in Playwright through real-world examples, hands-on exercises, and practical guidance. Web & API Testing.
+                </p>
+                <div className="course-card__meta">
+                  <span className="course-card__rating">
+                    <FiStar size={13} /> 4.6
+                  </span>
+                  <span className="course-card__reviews">1,944 reviews</span>
+                </div>
+                <span className="course-card__cta">
+                  View Course <FiExternalLink size={13} />
+                </span>
+              </div>
+            </a>
+
+            <a
+              href="https://trk.udemy.com/n419BV"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="course-card"
+            >
+              <div className="course-card__img-wrap">
+                <img
+                  src="https://img-c.udemycdn.com/course/750x422/947098_02ec_2.jpg"
+                  alt="Understanding TypeScript"
+                  className="course-card__img"
+                />
+              </div>
+              <div className="course-card__body">
+                <h3 className="course-card__title">Understanding TypeScript</h3>
+                <p className="course-card__desc">
+                  Learn what TypeScript is, why it's a powerful addition to JavaScript, and how to use it. From basics to advanced features.
+                </p>
+                <div className="course-card__meta">
+                  <span className="course-card__rating">
+                    <FiStar size={13} /> 4.7
+                  </span>
+                  <span className="course-card__reviews">57,830 reviews</span>
+                </div>
+                <span className="course-card__cta">
+                  View Course <FiExternalLink size={13} />
+                </span>
+              </div>
+            </a>
+
+            <a
+              href="https://trk.udemy.com/4aeZq0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="course-card"
+            >
+              <div className="course-card__img-wrap">
+                <img
+                  src="https://img-c.udemycdn.com/course/750x422/6519091_618d_4.jpg"
+                  alt="AI Testing with DeepEval, RAGAS & Ollama"
+                  className="course-card__img"
+                />
+              </div>
+              <div className="course-card__body">
+                <h3 className="course-card__title">AI Testing: DeepEval, RAGAS & Ollama</h3>
+                <p className="course-card__desc">
+                  Master testing and evaluating AI applications and LLMs. Cutting-edge techniques for QA engineers and AI practitioners.
+                </p>
+                <div className="course-card__meta">
+                  <span className="course-card__rating">
+                    <FiStar size={13} /> 4.3
+                  </span>
+                  <span className="course-card__reviews">395 reviews</span>
+                </div>
+                <span className="course-card__cta">
+                  View Course <FiExternalLink size={13} />
+                </span>
+              </div>
+            </a>
           </div>
         </div>
       </section>

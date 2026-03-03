@@ -453,6 +453,110 @@
   margin-top: 2rem;
 }
 
+/* Recommended Courses */
+.courses__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.course-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.15);
+}
+
+.course-card__img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 750 / 422;
+}
+
+.course-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.course-card:hover .course-card__img {
+  transform: scale(1.05);
+}
+
+.course-card__body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.course-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+
+.course-card__desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0 0 0.75rem;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.course-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.course-card__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fbbf24;
+}
+
+.course-card__reviews {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.course-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent-purple);
+  transition: gap var(--transition-fast);
+}
+
+.course-card:hover .course-card__cta {
+  gap: 0.6rem;
+}
+
 /* CTA */
 .cta__card {
   text-align: center;
@@ -479,6 +583,12 @@
 /* Responsive */
 @media (max-width: 1024px) {
   .paths__grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .courses__grid {
     grid-template-columns: 1fr;
     max-width: 500px;
     margin: 0 auto;
