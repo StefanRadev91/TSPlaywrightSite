@@ -9,12 +9,12 @@ admin.initializeApp({
 });
 const db = admin.firestore();
 
+// Only direct-source feeds (no aggregators that link to random external blogs)
 const FEEDS = [
   { url: 'https://feed.infoq.com/?contentType=article&tag=testing', source: 'InfoQ' },
   { url: 'https://www.softwaretestingmagazine.com/feed/', source: 'ST Magazine' },
   { url: 'https://dev.to/feed/playwright', source: 'Playwright' },
   { url: 'https://devops.com/feed/', source: 'DevOps.com' },
-  { url: 'https://feeds.feedburner.com/mottestingfeeds?format=xml', source: 'Ministry of Testing' },
 ];
 
 // Only keep articles related to QA / testing / automation
@@ -40,7 +40,12 @@ function isQARelated(article) {
 
 const parser = new Parser({
   customFields: {
-    item: [['media:content', 'mediaContent'], ['media:thumbnail', 'mediaThumbnail'], ['enclosure', 'enclosure']],
+    item: [
+      ['content:encoded', 'contentEncoded'],
+      ['media:content', 'mediaContent'],
+      ['media:thumbnail', 'mediaThumbnail'],
+      ['enclosure', 'enclosure'],
+    ],
   },
 });
 
@@ -53,8 +58,8 @@ function extractImage(item) {
   // 2. Check enclosure
   if (item.enclosure?.url && item.enclosure.type?.startsWith('image')) return item.enclosure.url;
 
-  // 3. Parse <img> from content/description HTML
-  const html = item['content:encoded'] || item.content || item.description || '';
+  // 3. Parse <img> from full HTML content (contentEncoded has the raw HTML)
+  const html = item.contentEncoded || item.content || item.description || '';
   const imgMatch = html.match(/<img[^>]+src=["']([^"']+)["']/i);
   if (imgMatch?.[1]) return imgMatch[1];
 

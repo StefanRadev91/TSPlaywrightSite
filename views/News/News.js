@@ -7,9 +7,9 @@ import { FiExternalLink, FiClock, FiRss, FiArrowUpRight } from 'react-icons/fi';
 
 function getSourceColor(source) {
   if (source.includes('Playwright')) return 'badge-green';
-  if (source.includes('Ministry')) return 'badge-purple';
   if (source.includes('InfoQ')) return 'badge-blue';
   if (source.includes('DevOps')) return 'badge-blue';
+  if (source.includes('ST Magazine')) return 'badge-purple';
   return 'badge-green';
 }
 
