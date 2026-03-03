@@ -3,7 +3,7 @@ import React from 'react';
 import CodeBlock from '@/components/CodeBlock/CodeBlock';
 import Navigation from '@/components/Navigation/Navigation';
 import { useAuth } from '@/contexts/AuthContext';
-import { FiCheckCircle, FiAward } from 'react-icons/fi';
+import { FiCheckCircle, FiAward, FiExternalLink } from 'react-icons/fi';
 
 const sections = [
   { id: 'introduction', label: 'Introduction' },
@@ -13,6 +13,7 @@ const sections = [
   { id: 'running-rag', label: 'Running the RAG' },
   { id: 'evaluation-metrics', label: 'Evaluation Metrics' },
   { id: 'full-workflow', label: 'Full Workflow' },
+  { id: 'recommended-courses', label: 'Courses' },
 ];
 
 // ---------------------------------------------------------------------------
@@ -659,6 +660,31 @@ function AIEval() {
               <li><strong>LLM-as-judge</strong> (GPT-4o) evaluates quality — no manual scoring needed</li>
               <li><strong>Track over time</strong> in Confident AI to catch regressions early</li>
             </ul>
+          </section>
+
+          {/* ── Recommended Courses ── */}
+          <section id="recommended-courses" className="recommended-courses">
+            <h2>Recommended Courses</h2>
+            <p>Go deeper into AI testing with this hand-picked course.</p>
+            <div className="recommended-courses__card">
+              <div className="recommended-courses__card-body">
+                <span className="section-label section-label--purple">Udemy Course</span>
+                <h3 className="recommended-courses__card-title">AI Testing: DeepEval, RAGAS & Ollama</h3>
+                <p className="recommended-courses__card-desc">
+                  Master testing and evaluating AI applications and LLMs. Covers DeepEval,
+                  RAGAS, Confident AI, local LLMs with Ollama, RAG testing, AI agent evaluation,
+                  and hands-on projects with real-world scenarios.
+                </p>
+                <a
+                  href="https://trk.udemy.com/4aeZq0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="recommended-courses__btn"
+                >
+                  View Course on Udemy <FiExternalLink size={16} />
+                </a>
+              </div>
+            </div>
           </section>
 
           {/* ── Mark as Complete ── */}
