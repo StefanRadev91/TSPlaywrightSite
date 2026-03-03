@@ -55,7 +55,6 @@ export const metadata = {
   description: 'Learn Playwright & TypeScript test automation from zero to enterprise-level. Complete guide with Page Object Model, best practices, and real examples.',
   openGraph: {
     type: 'website',
-    url: 'https://www.tsplaywright.blog',
     siteName: 'Playwright & TypeScript Academy',
     images: [
       {
