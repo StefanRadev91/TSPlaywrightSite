@@ -3,7 +3,7 @@ import React from 'react';
 import CodeBlock from '@/components/CodeBlock/CodeBlock';
 import Navigation from '@/components/Navigation/Navigation';
 import { useAuth } from '@/contexts/AuthContext';
-import { FiCheckCircle, FiAward } from 'react-icons/fi';
+import { FiCheckCircle, FiAward, FiExternalLink } from 'react-icons/fi';
 
 const sections = [
   { id: 'introduction', label: 'Introduction' },
@@ -16,6 +16,7 @@ const sections = [
   { id: 'screenshots', label: 'Screenshots & Videos' },
   { id: 'reporting', label: 'Reporting' },
   { id: 'full-example', label: 'Full Example' },
+  { id: 'recommended-courses', label: 'Courses' },
 ];
 
 // ---------------------------------------------------------------------------
@@ -1186,6 +1187,30 @@ npx playwright test --debug`}
               </button>
             )}
           </div>
+
+          {/* Recommended Courses */}
+          <section id="recommended-courses" className="recommended-courses">
+            <h2>Recommended Courses</h2>
+            <p>Take your Playwright skills to the next level with this hand-picked course.</p>
+            <div className="recommended-courses__card">
+              <div className="recommended-courses__card-body">
+                <span className="section-label section-label--green">Udemy Course</span>
+                <h3 className="recommended-courses__card-title">Playwright with TypeScript</h3>
+                <p className="recommended-courses__card-desc">
+                  A comprehensive course covering Playwright fundamentals, advanced patterns,
+                  and real-world test automation strategies with TypeScript.
+                </p>
+                <a
+                  href="https://trk.udemy.com/YVgWXr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="recommended-courses__btn"
+                >
+                  View Course on Udemy <FiExternalLink size={16} />
+                </a>
+              </div>
+            </div>
+          </section>
 
         </article>
 

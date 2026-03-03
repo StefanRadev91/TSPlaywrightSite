@@ -269,6 +269,63 @@
   color: var(--accent-purple);
 }
 
+/* --- Recommended Courses --- */
+
+.recommended-courses {
+  margin-top: 2rem;
+}
+
+.recommended-courses__card {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(74, 222, 128, 0.05) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.recommended-courses__card:hover {
+  border-color: var(--accent-green);
+  box-shadow: 0 4px 20px rgba(74, 222, 128, 0.1);
+}
+
+.recommended-courses__card-body {
+  padding: 1.75rem;
+}
+
+.recommended-courses__card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.recommended-courses__card-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.recommended-courses__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  background-color: var(--accent-green);
+  color: #0a0a0a;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.recommended-courses__btn:hover {
+  background-color: #5aea9e;
+  transform: translateY(-1px);
+}
+
 /* --- Responsive --- */
 
 @media (max-width: 960px) {
