@@ -98,6 +98,28 @@ console.log(`${qaArticles.length}/${articles.length} articles matched QA filter.
 qaArticles.sort((a, b) => b.date - a.date);
 const top10 = qaArticles.slice(0, 10);
 
+// Feeds often have no images, so fall back to the article page's og:image
+async function fetchOgImage(url) {
+  try {
+    const res = await fetch(url, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; QANewsBot/1.0)' },
+      signal: AbortSignal.timeout(10000),
+    });
+    if (!res.ok) return '';
+    const html = await res.text();
+    const tag = html.match(/<meta[^>]+(?:property|name)=["']og:image["'][^>]*>/i)?.[0] || '';
+    const img = tag.match(/content=["']([^"']+)["']/i)?.[1] || '';
+    // Skip site icons, they make poor previews
+    return /favicon|logo/i.test(img) ? '' : img;
+  } catch {
+    return '';
+  }
+}
+
+for (const article of top10) {
+  if (!article.image && article.link) article.image = await fetchOgImage(article.link);
+}
+
 // Clear existing news collection and replace with fresh top 10
 const existingDocs = await db.collection('news').get();
 if (!existingDocs.empty) {
