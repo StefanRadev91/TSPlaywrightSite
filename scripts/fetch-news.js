@@ -14,7 +14,7 @@ const FEEDS = [
   { url: 'https://feed.infoq.com/?contentType=article&tag=testing', source: 'InfoQ' },
   { url: 'https://www.softwaretestingmagazine.com/feed/', source: 'ST Magazine' },
   { url: 'https://dev.to/feed/playwright', source: 'Playwright' },
-  { url: 'https://devops.com/feed/', source: 'DevOps.com' },
+  { url: 'https://testguild.com/feed/', source: 'TestGuild' },
 ];
 
 // Only keep articles related to QA / testing / automation
@@ -39,6 +39,7 @@ function isQARelated(article) {
 }
 
 const parser = new Parser({
+  headers: { 'User-Agent': 'Mozilla/5.0 (compatible; QANewsBot/1.0)' },
   customFields: {
     item: [
       ['content:encoded', 'contentEncoded'],

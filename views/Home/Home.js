@@ -129,7 +129,7 @@ function Home() {
                 >
                   {article.image ? (
                     <div className="news-card__img-wrap">
-                      <img src={article.image} alt="" className="news-card__img" />
+                      <img src={article.image} alt="" className="news-card__img" referrerPolicy="no-referrer" onError={e => { e.currentTarget.style.display = 'none'; }} />
                     </div>
                   ) : (
                     <div className="news-card__img-wrap news-card__img-placeholder">

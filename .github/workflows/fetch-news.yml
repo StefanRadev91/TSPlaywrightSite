@@ -5,6 +5,9 @@ on:
     - cron: '0 */6 * * *'
   workflow_dispatch:
 
+permissions:
+  actions: write
+
 jobs:
   fetch-news:
     runs-on: ubuntu-latest
@@ -24,3 +27,9 @@ jobs:
         working-directory: scripts
         env:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+
+      # GitHub disables scheduled workflows after 60 days without repo activity
+      - name: Keep scheduled workflow active
+        run: gh api -X PUT repos/${{ github.repository }}/actions/workflows/fetch-news.yml/enable
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

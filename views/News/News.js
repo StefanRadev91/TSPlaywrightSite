@@ -81,7 +81,7 @@ function News() {
             >
               {featured.image && (
                 <div className="news-featured__img-wrap">
-                  <img src={featured.image} alt="" className="news-featured__img" />
+                  <img src={featured.image} alt="" className="news-featured__img" referrerPolicy="no-referrer" onError={e => { e.currentTarget.style.display = 'none'; }} />
                   <div className="news-featured__img-overlay" />
                 </div>
               )}
@@ -118,7 +118,7 @@ function News() {
                   >
                     {article.image ? (
                       <div className="news-grid__img-wrap">
-                        <img src={article.image} alt="" className="news-grid__img" />
+                        <img src={article.image} alt="" className="news-grid__img" referrerPolicy="no-referrer" onError={e => { e.currentTarget.style.display = 'none'; }} />
                       </div>
                     ) : (
                       <div className="news-grid__img-wrap news-grid__img-placeholder">
