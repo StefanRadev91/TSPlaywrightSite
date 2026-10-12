@@ -6,6 +6,8 @@ import { doc, setDoc, getDoc, increment } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import { FiExternalLink, FiEye } from 'react-icons/fi';
 
+const AGENCY_URL = 'https://www.newwavedevelopement.online/en';
+
 function Footer() {
   const [visitorCount, setVisitorCount] = useState(null);
 
@@ -72,6 +74,19 @@ function Footer() {
 
         <div className="footer__bottom">
           <p>&copy; {new Date().getFullYear()} Playwright & TS Academy. Built for the test automation community.</p>
+          <a
+            href={AGENCY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Powered by New Wave Web Intelligence"
+            className="footer__powered"
+          >
+            <span className="footer__powered-text">Powered by</span>
+            <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+              <rect width="64" height="64" rx="14" fill="#c8ff2e" />
+              <text x="32" y="43" textAnchor="middle" fontFamily="Arial, Helvetica, sans-serif" fontWeight="800" fontSize="30" fill="#0a0a0b">NW</text>
+            </svg>
+          </a>
           {visitorCount !== null && (
             <div className="footer__visitors">
               <FiEye size={13} />
